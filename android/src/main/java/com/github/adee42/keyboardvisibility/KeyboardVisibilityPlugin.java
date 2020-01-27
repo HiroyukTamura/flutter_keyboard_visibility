@@ -104,7 +104,9 @@ public class KeyboardVisibilityPlugin implements StreamHandler, Application.Acti
         KeyboardVisibilityPlugin instance = new KeyboardVisibilityPlugin(registrar);
         eventChannel.setStreamHandler(instance);
 
-        registrar.activity().getApplication().registerActivityLifecycleCallbacks(instance);
+        // @see https://github.com/MisterJimson/flutter_keyboard_visibility/commit/a3783701c38b2846ecb10f49205a038ff0a8dcdd
+        if (registrar.activity() != null)
+            registrar.activity().getApplication().registerActivityLifecycleCallbacks(instance);
     }
 
     @Override
