@@ -51,6 +51,7 @@ class _KeyboardVisibilityExampleState extends State<KeyboardVisibilityExample> {
 
   @override
   void dispose() {
+    super.dispose();
     _keyboardVisibility.removeListener(_keyboardVisibilitySubscriberId);
   }
 
